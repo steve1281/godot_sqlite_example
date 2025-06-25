@@ -53,6 +53,11 @@ Useful code snippet: Update Data
 						{ "score": int(score.text) })
 ```
 
+Useful code snippit: Delete Data
+
+```
+database.delete_rows(player_table, "name = '" + xname.text + "'")
+```
 
 Notes:
 	

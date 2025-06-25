@@ -45,7 +45,8 @@ func _on_update_data_pressed() -> void:
 
 
 func _on_delete_data_pressed() -> void:
-	pass # Replace with function body.
+	database.delete_rows(player_table, "name = '" + xname.text + "'")
+	
 
 
 func _on_custom_select_pressed() -> void:
