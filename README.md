@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=j-BRiTrw_F0 by FinePointCGI
 
 ( as always, please see the original work.  I am not associated with the author in anyway)
 
-Useful code snippit
+Useful code snippit: Create DB
 
 ```
 var database : SQLite
@@ -17,6 +17,17 @@ func _ready() -> void:
 Opened database successfully (C:/Users/steve/godot_projects/sqlite_tutorial/data.db)
 
 ```
+Useful code snippit: Create Table
+
+```
+	var table = {
+		"id": {"data_type": "int", "primary_key": true, "not_null":true, "auto_increment": true },
+		"name": {"data_type": "text"},
+		"score": {"data_type": "int"}
+	}
+	database.create_table("players", table)
+	
+```
 
 Notes:
 	
@@ -24,3 +35,4 @@ Notes:
 	- remember to enable the plugin in the Projects-Settings-Plugins
 	- video talks about a "missing plugin.cfg and gdsqlite.gdextension file".  This now appears to be fixed. (so I will NOT being his work around for now)
 	- I deviate from the original code; this is typical of me, sorry.
+	- he also uses DB Browser for SQlite; its a good tool to have for SQlite installations.

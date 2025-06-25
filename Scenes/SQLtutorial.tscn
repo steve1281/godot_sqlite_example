@@ -75,3 +75,10 @@ text = "Score"
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Name"
+
+[connection signal="pressed" from="Button_VBoxContainer/CreateTable" to="." method="_on_create_table_pressed"]
+[connection signal="pressed" from="Button_VBoxContainer/InsertData" to="." method="_on_insert_data_pressed"]
+[connection signal="pressed" from="Button_VBoxContainer/SelectData" to="." method="_on_select_data_pressed"]
+[connection signal="pressed" from="Button_VBoxContainer/UpdateData" to="." method="_on_update_data_pressed"]
+[connection signal="pressed" from="Button_VBoxContainer/DeleteData" to="." method="_on_delete_data_pressed"]
+[connection signal="pressed" from="Button_VBoxContainer/CustomSelect" to="." method="_on_custom_select_pressed"]
