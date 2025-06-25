@@ -47,7 +47,7 @@ text = "Custom Data"
 layout_mode = 0
 offset_left = 399.0
 offset_top = 65.0
-offset_right = 691.0
+offset_right = 816.0
 offset_bottom = 306.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Data_VBoxContainer"]

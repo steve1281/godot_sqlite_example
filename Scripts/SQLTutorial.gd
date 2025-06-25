@@ -50,4 +50,19 @@ func _on_delete_data_pressed() -> void:
 
 
 func _on_custom_select_pressed() -> void:
-	pass # Replace with function body.
+	
+	if score.text == "": return  
+	
+	var flag : bool = database.query("
+		select * from 
+		players a
+		join playerInfo b
+		on a.playerinfoid = b.id
+		where a.score > " + str(score.text))
+
+	
+	if !flag: return
+	
+	output_text_edit.text = ""
+	for x in database.query_result:
+		output_text_edit.text += "ID: "+ str(x.id) + " Name: " + x.name + " Score:" + str(x.score) + " Address: " + x.address + "\n"

@@ -59,6 +59,22 @@ Useful code snippit: Delete Data
 database.delete_rows(player_table, "name = '" + xname.text + "'")
 ```
 
+Usefull code snippit: Custom query
+
+```
+	var data = database.query("
+		select * from 
+		players a
+		join playerInfo b
+		on a.playerinfoid = b.id
+		where a.score > " + str(score.text))
+
+	output_text_edit.text = ""
+	for x in database.query_result:
+		output_text_edit.text += "ID: "+ str(x.id) + " Name: " + x.name + " Score:" + str(x.score) + "\n"
+```
+
+
 Notes:
 	
 	- need to install the plugin godot-sqlite by 2shady4u (I got the 4.5 version.)
@@ -67,3 +83,39 @@ Notes:
 	- I deviate from the original code; this is typical of me, sorry.
 	- he also uses DB Browser for SQlite; its a good tool to have for SQlite installations.
 	- he misspells auto in auto_increment.  Easy to fix in db browser.  (I didn't)
+
+He creates a table is DB Browser.  The code is:
+
+```
+	CREATE TABLE "playerInfo" (
+		"id"	INTEGER NOT NULL,
+		"address"	TEXT,
+		PRIMARY KEY("id" AUTOINCREMENT)
+	);
+```
+
+	- so an id and a single text field for storing address data, np :)
+	- adds a playerinfoid to players
+	- manually assigns a player record so its id points to a playerinfo
+	- repeat for other players (so every player points to a playerinfo)
+	- comment: a better example would to have two players sharing an address. I digress though.
+	
+So you could do a select with:
+	
+```
+	select * from 
+		players a, 
+		playerInfo b 
+		where a.playerinfoid = b.id;
+```
+
+Or, using what video does:
+
+```
+	select * from 
+		players a
+		join playerInfo b
+		on a.playerinfoid = b.id;
+```
+
+- also note you need to use write changes with db browser (like a commit)
