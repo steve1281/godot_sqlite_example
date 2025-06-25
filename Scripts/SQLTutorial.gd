@@ -4,6 +4,7 @@ var database : SQLite
 
 @onready var xname: TextEdit = %Name
 @onready var score: TextEdit = %Score
+@onready var output_text_edit: TextEdit = %OutputTextEdit
 
 var player_table : String = "players"
 
@@ -31,7 +32,10 @@ func _on_insert_data_pressed() -> void:
 
 
 func _on_select_data_pressed() -> void:
-	pass # Replace with function body.
+	var data = database.select_rows(player_table, "score > 10",["id", "name", "score"])
+	output_text_edit.text = ""
+	for x in data:
+		output_text_edit.text += "ID: "+ str(x.id) + " Name: " + x.name + " Score:" + str(x.score) + "\n"
 
 
 func _on_update_data_pressed() -> void:

@@ -37,7 +37,14 @@ Useful code snippit: Insert Data
 	}
 	database.insert_row(player_table, data)
 ```
+Useful code snippet: Select Data
 
+```
+	var data = database.select_rows(player_table, "score > 10",["id", "name", "score"])
+	output_text_edit.text = ""
+	for x in data:
+		output_text_edit.text += "ID: "+ str(x.id) + " Name: " + x.name + " Score:" + str(x.score) + "\n"
+```
 
 
 Notes:

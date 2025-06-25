@@ -78,6 +78,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Name"
 
+[node name="OutputTextEdit" type="TextEdit" parent="Data_VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+editable = false
+
 [connection signal="pressed" from="Button_VBoxContainer/CreateTable" to="." method="_on_create_table_pressed"]
 [connection signal="pressed" from="Button_VBoxContainer/InsertData" to="." method="_on_insert_data_pressed"]
 [connection signal="pressed" from="Button_VBoxContainer/SelectData" to="." method="_on_select_data_pressed"]
