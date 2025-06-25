@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://loe8ri8fuimn"]
+
+[ext_resource type="Script" uid="uid://cf8mapcy54jue" path="res://Scripts/SQLTutorial.gd" id="1_odutg"]
+
+[node name="SQLTutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_odutg")
+
+[node name="Button_VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 71.0
+offset_right = 292.0
+offset_bottom = 397.0
+theme_override_constants/separation = 20
+
+[node name="CreateTable" type="Button" parent="Button_VBoxContainer"]
+layout_mode = 2
+text = "Create Table"
+
+[node name="InsertData" type="Button" parent="Button_VBoxContainer"]
+layout_mode = 2
+text = "Insert Data"
+
+[node name="SelectData" type="Button" parent="Button_VBoxContainer"]
+layout_mode = 2
+text = "Select	 Data"
+
+[node name="UpdateData" type="Button" parent="Button_VBoxContainer"]
+layout_mode = 2
+text = "Update Data"
+
+[node name="DeleteData" type="Button" parent="Button_VBoxContainer"]
+layout_mode = 2
+text = "Delete Data"
+
+[node name="CustomSelect" type="Button" parent="Button_VBoxContainer"]
+layout_mode = 2
+text = "Custom Data"
+
+[node name="Data_VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 65.0
+offset_right = 691.0
+offset_bottom = 306.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Data_VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Data_VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="Name" type="TextEdit" parent="Data_VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Name"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Data_VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Data_VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Score"
+
+[node name="Score" type="TextEdit" parent="Data_VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Name"
