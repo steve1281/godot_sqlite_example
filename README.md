@@ -45,6 +45,13 @@ Useful code snippet: Select Data
 	for x in data:
 		output_text_edit.text += "ID: "+ str(x.id) + " Name: " + x.name + " Score:" + str(x.score) + "\n"
 ```
+Useful code snippet: Update Data
+
+```
+	database.update_rows(player_table, 
+						"name = '" + xname.text + "'" , 
+						{ "score": int(score.text) })
+```
 
 
 Notes:

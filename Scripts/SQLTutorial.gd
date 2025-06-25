@@ -39,7 +39,9 @@ func _on_select_data_pressed() -> void:
 
 
 func _on_update_data_pressed() -> void:
-	pass # Replace with function body.
+	database.update_rows(player_table, 
+						"name = '" + xname.text + "'" , 
+						{ "score": int(score.text) })
 
 
 func _on_delete_data_pressed() -> void:
