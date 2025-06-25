@@ -2,6 +2,11 @@ extends Control
 
 var database : SQLite
 
+@onready var xname: TextEdit = %Name
+@onready var score: TextEdit = %Score
+
+var player_table : String = "players"
+
 func _ready() -> void:
 	database = SQLite.new()
 	database.path= "res://data.db"
@@ -13,11 +18,16 @@ func _on_create_table_pressed() -> void:
 		"name": {"data_type": "text"},
 		"score": {"data_type": "int"}
 	}
-	database.create_table("players", table)
+	database.create_table(player_table, table)
 
 
 func _on_insert_data_pressed() -> void:
-	pass # Replace with function body.
+	var data = {
+		"name" : xname.text,
+		"score": int(score.text)
+	}
+	database.insert_row(player_table, data)
+	
 
 
 func _on_select_data_pressed() -> void:

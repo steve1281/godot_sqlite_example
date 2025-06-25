@@ -28,6 +28,17 @@ Useful code snippit: Create Table
 	database.create_table("players", table)
 	
 ```
+Useful code snippit: Insert Data
+
+```
+	var data = {
+		"name" : xname.text,
+		"score": int(score.text)
+	}
+	database.insert_row(player_table, data)
+```
+
+
 
 Notes:
 	
@@ -36,3 +47,4 @@ Notes:
 	- video talks about a "missing plugin.cfg and gdsqlite.gdextension file".  This now appears to be fixed. (so I will NOT being his work around for now)
 	- I deviate from the original code; this is typical of me, sorry.
 	- he also uses DB Browser for SQlite; its a good tool to have for SQlite installations.
+	- he misspells auto in auto_increment.  Easy to fix in db browser.  (I didn't)
