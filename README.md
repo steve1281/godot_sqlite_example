@@ -73,6 +73,26 @@ Usefull code snippit: Custom query
 	for x in database.query_result:
 		output_text_edit.text += "ID: "+ str(x.id) + " Name: " + x.name + " Score:" + str(x.score) + "\n"
 ```
+Useful code snippits: update image to blob, and select blob to image:
+
+```
+
+	var image := preload("res://Images/Zariel_Descent.jpg")
+	var pba:PackedByteArray = image.get_image().save_jpg_to_buffer()
+	database.update_rows(player_table, 
+						"name = '" + xname.text + "'" , 
+						{ "picture": pba })
+	
+...
+
+	database.select_rows(player_table, "name = '"+xname.text+"'", ["picture"])
+	for i in database.query_result:
+		var image = Image.new()
+		image.load_jpg_from_buffer(i.picture)
+		var texture = ImageTexture.create_from_image(image)
+		player_picture.texture = texture
+		
+```
 
 
 Notes:
@@ -119,3 +139,7 @@ Or, using what video does:
 ```
 
 - also note you need to use write changes with db browser (like a commit)
+
+Next, working with image (using BLOB as your data type)
+
+- in db browser, modify players table, add row called picture with datatype of BLOB

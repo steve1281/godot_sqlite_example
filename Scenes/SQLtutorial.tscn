@@ -43,6 +43,14 @@ text = "Delete Data"
 layout_mode = 2
 text = "Custom Data"
 
+[node name="StoreImage" type="Button" parent="Button_VBoxContainer"]
+layout_mode = 2
+text = "Store Player Image"
+
+[node name="LoadImage" type="Button" parent="Button_VBoxContainer"]
+layout_mode = 2
+text = "Load Player Image"
+
 [node name="Data_VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 399.0
@@ -84,9 +92,19 @@ layout_mode = 2
 size_flags_vertical = 3
 editable = false
 
+[node name="PlayerPicture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 0
+offset_left = 822.0
+offset_top = 68.0
+offset_right = 1136.0
+offset_bottom = 518.0
+
 [connection signal="pressed" from="Button_VBoxContainer/CreateTable" to="." method="_on_create_table_pressed"]
 [connection signal="pressed" from="Button_VBoxContainer/InsertData" to="." method="_on_insert_data_pressed"]
 [connection signal="pressed" from="Button_VBoxContainer/SelectData" to="." method="_on_select_data_pressed"]
 [connection signal="pressed" from="Button_VBoxContainer/UpdateData" to="." method="_on_update_data_pressed"]
 [connection signal="pressed" from="Button_VBoxContainer/DeleteData" to="." method="_on_delete_data_pressed"]
 [connection signal="pressed" from="Button_VBoxContainer/CustomSelect" to="." method="_on_custom_select_pressed"]
+[connection signal="pressed" from="Button_VBoxContainer/StoreImage" to="." method="_on_store_image_pressed"]
+[connection signal="pressed" from="Button_VBoxContainer/LoadImage" to="." method="_on_load_image_pressed"]

@@ -5,6 +5,7 @@ var database : SQLite
 @onready var xname: TextEdit = %Name
 @onready var score: TextEdit = %Score
 @onready var output_text_edit: TextEdit = %OutputTextEdit
+@onready var player_picture: TextureRect = $PlayerPicture
 
 var player_table : String = "players"
 
@@ -66,3 +67,26 @@ func _on_custom_select_pressed() -> void:
 	output_text_edit.text = ""
 	for x in database.query_result:
 		output_text_edit.text += "ID: "+ str(x.id) + " Name: " + x.name + " Score:" + str(x.score) + " Address: " + x.address + "\n"
+
+
+func _on_store_image_pressed() -> void:
+	var image := preload("res://Images/Zariel_Descent.jpg")
+	var pba:PackedByteArray = image.get_image().save_jpg_to_buffer()
+
+	if xname.text == "" : return
+	
+	database.update_rows(player_table, 
+						"name = '" + xname.text + "'" , 
+						{ "picture": pba })
+	
+
+
+func _on_load_image_pressed() -> void:
+	if xname.text == "": return
+	database.select_rows(player_table, "name = '"+xname.text+"'", ["picture"])
+	for i in database.query_result:
+		var image = Image.new()
+		image.load_jpg_from_buffer(i.picture)
+		var texture = ImageTexture.create_from_image(image)
+		player_picture.texture = texture
+		
