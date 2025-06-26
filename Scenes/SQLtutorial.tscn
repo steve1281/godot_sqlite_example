@@ -60,7 +60,7 @@ layout_mode = 0
 offset_left = 399.0
 offset_top = 65.0
 offset_right = 816.0
-offset_bottom = 306.0
+offset_bottom = 605.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Data_VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
@@ -95,6 +95,19 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 editable = false
+
+[node name="Label" type="Label" parent="Data_VBoxContainer"]
+layout_mode = 2
+text = "Notes:
+
+You only to create table once.
+Insert data will add name and score.
+Select data will return id, name and score for all.
+Update data updates score for field Name.
+Delete data removes the record for Name.
+Custom data requires aminimum score.
+Store/Load player.
+Exit quits the program."
 
 [node name="PlayerPicture" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(300, 450)
