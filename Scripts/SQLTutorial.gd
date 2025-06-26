@@ -85,6 +85,7 @@ func _on_load_image_pressed() -> void:
 	if xname.text == "": return
 	database.select_rows(player_table, "name = '"+xname.text+"'", ["picture"])
 	for i in database.query_result:
+		if i.picture == null: continue
 		var image = Image.new()
 		image.load_jpg_from_buffer(i.picture)
 		var texture = ImageTexture.create_from_image(image)
