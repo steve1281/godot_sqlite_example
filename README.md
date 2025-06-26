@@ -143,3 +143,16 @@ Or, using what video does:
 Next, working with image (using BLOB as your data type)
 
 - in db browser, modify players table, add row called picture with datatype of BLOB
+
+
+
+git log --oneline --decorate --all --reverse
+
+- a1fcffd add plugin, add readme, rough in UI
+- 35eaec1 add code to create a table
+- 3663138 add insert
+- 54d2350 add select
+- abccb52 add update
+- b5f0f49 add delete
+- a60d43e add a custom query, tweak UI
+- 761e860 add image update and image select
