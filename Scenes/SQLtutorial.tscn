@@ -51,6 +51,10 @@ text = "Store Player Image"
 layout_mode = 2
 text = "Load Player Image"
 
+[node name="Exit" type="Button" parent="Button_VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
 [node name="Data_VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 399.0
@@ -108,3 +112,4 @@ offset_bottom = 518.0
 [connection signal="pressed" from="Button_VBoxContainer/CustomSelect" to="." method="_on_custom_select_pressed"]
 [connection signal="pressed" from="Button_VBoxContainer/StoreImage" to="." method="_on_store_image_pressed"]
 [connection signal="pressed" from="Button_VBoxContainer/LoadImage" to="." method="_on_load_image_pressed"]
+[connection signal="pressed" from="Button_VBoxContainer/Exit" to="." method="_on_exit_pressed"]

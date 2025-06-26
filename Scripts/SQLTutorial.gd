@@ -91,3 +91,8 @@ func _on_load_image_pressed() -> void:
 		var texture = ImageTexture.create_from_image(image)
 		player_picture.texture = texture
 		
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
+	
