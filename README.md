@@ -112,7 +112,7 @@ He creates a table is DB Browser.  The code is:
 	);
 ```
 
-- so an id and a single text field for storing address data, np :)
+- so add an id and a single text field for storing address data, np :)
 - adds a playerinfoid to players
 - manually assigns a player record so its id points to a playerinfo
 - repeat for other players (so every player points to a playerinfo)
