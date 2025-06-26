@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=j-BRiTrw_F0 by FinePointCGI
 
 ( as always, please see the original work.  I am not associated with the author in anyway)
 
-Useful code snippit: Create DB
+Useful code snippit: *Create DB*
 
 ```
 var database : SQLite
@@ -17,7 +17,7 @@ func _ready() -> void:
 Opened database successfully (C:/Users/steve/godot_projects/sqlite_tutorial/data.db)
 
 ```
-Useful code snippit: Create Table
+Useful code snippit: *Create Table*
 
 ```
 	var table = {
@@ -28,7 +28,7 @@ Useful code snippit: Create Table
 	database.create_table("players", table)
 	
 ```
-Useful code snippit: Insert Data
+Useful code snippit: *Insert Data*
 
 ```
 	var data = {
@@ -37,7 +37,7 @@ Useful code snippit: Insert Data
 	}
 	database.insert_row(player_table, data)
 ```
-Useful code snippet: Select Data
+Useful code snippet: *Select Data*
 
 ```
 	var data = database.select_rows(player_table, "score > 10",["id", "name", "score"])
@@ -45,21 +45,21 @@ Useful code snippet: Select Data
 	for x in data:
 		output_text_edit.text += "ID: "+ str(x.id) + " Name: " + x.name + " Score:" + str(x.score) + "\n"
 ```
-Useful code snippet: Update Data
+Useful code snippet: *Update Data*
 
 ```
 	database.update_rows(player_table, 
-						"name = '" + xname.text + "'" , 
-						{ "score": int(score.text) })
+		"name = '" + xname.text + "'" , 
+		{ "score": int(score.text) })
 ```
 
-Useful code snippit: Delete Data
+Useful code snippit: *Delete Data*
 
 ```
 database.delete_rows(player_table, "name = '" + xname.text + "'")
 ```
 
-Usefull code snippit: Custom query
+Useful code snippit: *Custom query*
 
 ```
 	var data = database.query("
@@ -80,10 +80,12 @@ Useful code snippits: update image to blob, and select blob to image:
 	var image := preload("res://Images/Zariel_Descent.jpg")
 	var pba:PackedByteArray = image.get_image().save_jpg_to_buffer()
 	database.update_rows(player_table, 
-						"name = '" + xname.text + "'" , 
-						{ "picture": pba })
+		"name = '" + xname.text + "'" , 
+		{ "picture": pba })
 	
-...
+```
+and
+```
 
 	database.select_rows(player_table, "name = '"+xname.text+"'", ["picture"])
 	for i in database.query_result:
@@ -96,13 +98,12 @@ Useful code snippits: update image to blob, and select blob to image:
 
 
 Notes:
-	
-	- need to install the plugin godot-sqlite by 2shady4u (I got the 4.5 version.)
-	- remember to enable the plugin in the Projects-Settings-Plugins
-	- video talks about a "missing plugin.cfg and gdsqlite.gdextension file".  This now appears to be fixed. (so I will NOT being his work around for now)
-	- I deviate from the original code; this is typical of me, sorry.
-	- he also uses DB Browser for SQlite; its a good tool to have for SQlite installations.
-	- he misspells auto in auto_increment.  Easy to fix in db browser.  (I didn't)
+- need to install the plugin godot-sqlite by 2shady4u (I got the 4.5 version.)
+- remember to enable the plugin in the Projects-Settings-Plugins
+- video talks about a "missing plugin.cfg and gdsqlite.gdextension file".  This now appears to be fixed. (so I will NOT being his work around for now)
+- I deviate from the original code; this is typical of me, sorry.
+- he also uses DB Browser for SQlite; its a good tool to have for SQlite installations.
+- he misspells auto in auto_increment.  Easy to fix in db browser.  (I didn't)
 
 He creates a table is DB Browser.  The code is:
 
@@ -114,11 +115,11 @@ He creates a table is DB Browser.  The code is:
 	);
 ```
 
-	- so an id and a single text field for storing address data, np :)
-	- adds a playerinfoid to players
-	- manually assigns a player record so its id points to a playerinfo
-	- repeat for other players (so every player points to a playerinfo)
-	- comment: a better example would to have two players sharing an address. I digress though.
+- so an id and a single text field for storing address data, np :)
+- adds a playerinfoid to players
+- manually assigns a player record so its id points to a playerinfo
+- repeat for other players (so every player points to a playerinfo)
+- comment: a better example would to have two players sharing an address. I digress though.
 	
 So you could do a select with:
 	
@@ -145,8 +146,9 @@ Next, working with image (using BLOB as your data type)
 - in db browser, modify players table, add row called picture with datatype of BLOB
 
 
+Commit log:
 
-git log --oneline --decorate --all --reverse
+*git log --oneline --decorate --all --reverse*
 
 - a1fcffd add plugin, add readme, rough in UI
 - 35eaec1 add code to create a table
