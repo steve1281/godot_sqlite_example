@@ -1,4 +1,4 @@
-From: Integrating SQlite into Godot 4.2 https://www.youtube.com/watch?v=j-BRiTrw_F0 by FinePointCGI
+From: [Integrating SQlite into Godot 4.2](https://www.youtube.com/watch?v=j-BRiTrw_F0) by FinePointCGI
 ( as always, please see the original work!  I am not associated with the author in anyway)
 
 Useful code snippit: *Create DB*
